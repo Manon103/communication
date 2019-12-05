@@ -1,0 +1,26 @@
+ <div class="messageContainer">
+  <div class="page-header">
+    <h5><i class="fa-li fa fa-user" style="position:initial"></i>狗子</h5>
+  </div>
+  <div class="content">
+    <div class="msgTable">
+      <div class="container"  style="width: initial;">
+          <div class="ui-g" *ngFor="let item of messageList" style="margin-top: 10px;margin-bottom: 10px;">
+              <div style="margin-right: 22px;width: 100%;">
+                <img [ngClass]="item.styleClass" class="img-responsive img-circle" src="../../../../assets/imgs/header.jpg" alt="">
+                <span [ngClass]="item.styleClass">{{item.message}}</span>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="sendMsg">
+      <p style="margin: 8px 0 6px 14px">
+        <a style="margin-right: 20px; color: #333"><i class="fa fa-smile-o"></i></a>
+        <a style="color:#333"><i class="fa fa-picture-o"></i></a>
+      </p>
+      <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize" [(ngModel)]="msg"></textarea>
+      <button *ngIf="msg" pButton type="button" label="发送" class="ui-button-primary sendBtn" (click)="sendMsg()"></button>
+      <button  *ngIf="!msg" pButton disabled="disabled" label="发送" type="button" class="ui-button-primary sendBtn" (click)="sendMsg()"></button>
+  </div>
+</div>

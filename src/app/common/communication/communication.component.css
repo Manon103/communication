@@ -1,0 +1,68 @@
+.outerContainer{
+  height: 100%;
+  overflow: auto
+}
+.content{
+  width: 75%;
+}
+.outerContainer .nav-pills{
+  width: 100%;
+  background: #428bca;
+  color:#fff;
+  margin: 0;
+}
+
+.navbar-fixed-top{
+  position: fixed;
+}
+
+.outerContainer .nav-pills li{
+  list-style: none;
+  float: left;
+  margin-right: 60px;
+}
+
+.outerContainer .nav-pills .lHeight{
+  line-height: 50px;
+}
+.outerContainer .nav-pills .header{
+  margin: 0 10%;
+}
+.outerContainer .nav-pills a{
+  padding: 15px;
+}
+.outerContainer .nav-pills a i{
+  color: #fff;
+}
+.outerContainer .nav-pills li:nth-child(2){
+  margin-left: 20%;
+}
+.outerContainer .nav-pills li:nth-child(5){
+  float: right;
+  margin-right: 20px;
+}
+.outerContainer .contentContainer{
+  display: flex;
+  margin-top: 50px;
+  overflow: auto;
+}
+.contentContainer .list-group{
+  width: 25%;
+  margin-bottom: 0;
+}
+.list-group-item:first-child{
+  border-radius: 0;
+}
+
+:host ::ng-deep .ui-listbox{
+  width: 100%;
+  border: 1px solid #d1cdcd;
+}
+
+:host ::ng-deep .ui-g-4{
+  padding: 0;
+}
+
+:host ::ng-deep .ui-dialog .ui-dialog-content{
+  padding: 2.571em  1em;
+}

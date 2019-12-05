@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/primeng/resources/primeng.min.css';
+@import '../node_modules/primeng/resources/themes/nova-light/theme.css';
+@import '../node_modules/primeicons/primeicons.css';
+@import'~font-awesome/css/font-awesome.css';
+
+html{
+  height: 100%;
+}
+body {
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  font-weight: 400;
+  color: #404c51;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.875em;
+  min-width: 1024px;
+  overflow: auto;
+  word-wrap: break-word;
+  background: #f5f5f5;
+}
+.text-center{
+  text-align: center;
+}
+.img-circle{
+  border-radius: 50%;
+}

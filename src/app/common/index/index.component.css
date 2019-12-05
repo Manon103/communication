@@ -1,0 +1,17 @@
+#outerContainer{
+  font-size: 1.2rem;
+  height: 100%;
+  background: #2b99ea;
+  padding-top: 50px;
+}
+.jumbotron{
+  background: #2b99ea;
+  color:#ffffff;
+}
+.jumbotron button{
+  padding: 0.5rem 1.5rem;
+  background: #84bfee;
+}
+h2{
+  margin: 0;
+}

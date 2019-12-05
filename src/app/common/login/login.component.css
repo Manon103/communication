@@ -1,0 +1,47 @@
+.container-fluid{
+  height: 100%;
+  font-size: 1.5rem;
+  background:url('../../../assets/imgs/2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat
+}
+
+.container-fluid .topic{
+  padding-top: 3rem;
+}
+
+.container-fluid .topic .topicName{
+  font-size: 3rem;
+  margin-top: 0;
+  color:#0884ff;
+  font-family: 'simsun';
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.container-fluid .topic .topicDetails{
+  font-family: 'simhei';
+}
+
+.formContainer{
+  background: #FFF;
+  /* height: 50%; */
+  border-radius: 4px;
+}
+.formContainer img{
+  width: 70px;
+  height: 70px;
+}
+.formContainer label{
+  font-size: .6em;
+}
+.username, .password{
+  height:36px;
+}
+.submitBtn{
+  margin-top: 5%;
+  margin-left: 15%;
+  width: 70%;
+  height: 32px;
+  font-size: .6em;
+}

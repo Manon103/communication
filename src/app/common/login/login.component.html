@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <div class="topic text-center">
+      <p class="topicName">边界</p>
+      <p class="topicDetails">沟通 即刻开始</p>
+    </div>
+
+  <div class="formContainer ui-g-4 ui-g-offset-4">
+    <div class="text-center">
+        <img src='../../../assets/imgs/header.jpg' alt="头像" class="img-circle">
+    </div>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-group" style="margin-top: 5%">
+            <span class="ui-float-label text-center">
+                <input id="float-input1" type="text" style="width: 70%;" formControlName="userName" pInputText>
+                <label for="float-input1" style="left: 16%;">Username</label>
+            </span>
+            <div style="color:#f02c2c; font-size:.5em;margin-left:15%"
+                    *ngIf="!loginForm.controls['userName'].valid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)">
+                用户名不能为空！
+              </div>
+          </div>
+          <div class="form-group" style="margin-top: 5%">
+            <span class="ui-float-label text-center">
+                <input id="float-input2" type="password" style="width: 70%;" formControlName="password" pInputText>
+                <label for="float-input2" style="left: 16%;">password</label>
+            </span>
+            <div style="color:#f02c2c; font-size:.5em;margin-left:15%"
+            *ngIf="!loginForm.controls['password'].valid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                密码不能为空！
+              </div>
+          </div>
+
+          <div class="form-group">
+              <div>
+                <button pButton class="submitBtn" type="submit" label="登录" [disabled]="!loginForm.valid"></button>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="form-group ui-g-7">
+                  <div class="ui-g-offset-4">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> 记住用户
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-g-4">
+                    <a href="#" style="font-size: .6em; color: #404c51;">忘记密码？</a>
+                </div>
+          </div>
+        </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
