@@ -45,7 +45,8 @@ export class UserInfoService {
     });
   }
 
-  getMessage(msgInfo) {   // get请求需指定返回类型，否则会返回Observable<object>
+  // 获取消息列表
+  getMessageList(msgInfo) {   // get请求需指定返回类型，否则会返回Observable<object>
     return this.http.get<any>(`http://localhost:3000/immediate-communication/getMessage?user=${msgInfo.userName}&to=${msgInfo.aimUser}`, {
       headers: this.httpOptions.headers,
       observe: 'body',
@@ -59,6 +60,7 @@ export class UserInfoService {
     });
   }
 
+  // 验证添加好友时搜索的用户名是否正确
   validateSearchInfo(searchInfo) {
     return this.http.get<any>(`http://localhost:3000/immediate-communication/validateSearchInfo?searchInfo=${searchInfo}`, {
       headers: this.httpOptions.headers,

@@ -10,9 +10,8 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 module.exports.sendMessage = function (req, res) {
   var item = {
-    userName: req.body.session,
+    user: req.body.session + '&' + req.body.aimUser,
     message: req.body.msg,
-    // aimUser: req.body.aimUser
   }
   message.create(item, (err, data) => {
     if (err) {
@@ -24,7 +23,9 @@ module.exports.sendMessage = function (req, res) {
 }
 // , 'aimUser': req.query.to
 module.exports.getMessage = function (req, res) {
-  message.find({ 'userName': req.query.user}, (err, data) => {
+  const queryString = req.query.user + '&' + req.query.to;
+  const _queryString = req.query.to + '&' + req.query.user;
+  message.find({ $or: [{ user: queryString }, { user: _queryString }] }, (err, data) => {
     if (err) {
       common.sendResponse(err, 500, '服务器错误');
     } else {

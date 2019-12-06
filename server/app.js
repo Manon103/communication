@@ -42,18 +42,22 @@ app.use(function (req, res, next) {
   next();
 });
 
-
 // 设置服务器端口
 var wsServer = new Server({ port: 8085 });
-let socketSet = new Set();
+let socketSet = new Set();  // webSocket的连接是以set结构，而非数组
+
 wsServer.on('connection', websocket => {
-  socketSet.add(websocket);
+
   websocket.on('message', data => {
+    websocket.id = JSON.parse(data).session;
+    socketSet.add(websocket);
     socketSet.forEach(ws => {
-      if (ws.readyState == 1) {
-        ws.send(data);
-      } else {
-        socketSet.delete(ws);
+      if (JSON.parse(data).aimUser === ws.id) {
+        if (ws.readyState == 1) {
+          ws.send(data);
+        } else {
+          socketSet.delete(ws);
+        }
       }
     });
   });

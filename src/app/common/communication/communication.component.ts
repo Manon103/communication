@@ -11,7 +11,7 @@ import { MessageService } from 'primeng/api';
 export class CommunicationComponent implements OnInit {
 
   friendList: SelectItem[];
-  selectedCity1: '';
+  selectedFriend = '';
   displayAddFriendDialog = false;
   searchInfo = '';
 
@@ -29,7 +29,14 @@ export class CommunicationComponent implements OnInit {
           label: item, value: item,
         };
       });
+    }, err => {
+        console.log(err);
+        this.messageService.add({ severity: 'error', summary: 'error', detail: '获取好友列表失败，请稍后再试' });
+    }, () => {
+        this.selectedFriend = this.friendList[0].label;
     });
+    // this.selectedFriend = this.friendList[0].label;
+
   }
 
   showAddDialog() {
@@ -59,8 +66,13 @@ export class CommunicationComponent implements OnInit {
           });
         }
       }, err => {
-        this.messageService.add({severity: 'error', summary: 'error', detail: '服务器错误'});
+          console.log(err);
+          this.messageService.add({severity: 'error', summary: 'error', detail: '服务器错误'});
       });
     }
+  }
+
+  changeChatPage() {
+    
   }
 }

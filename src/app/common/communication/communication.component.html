@@ -1,13 +1,18 @@
 <div class="outerContainer">
     <ul class="nav nav-pills navbar-fixed-top">
         <li role="presentation" class="header"><img src="../../../assets/imgs/header.jpg" style="width: 50px" class="img-responsive img-circle" alt="头像"></li>
-        <li role="presentation" class="active lHeight"><a [routerLink]="['./message']" routerLinkActive="router-link-active"><i class="fa fa-comments-o"></i></a></li>
-        <li role="presentation" class="active lHeight"><a [routerLink]="['./friends']" routerLinkActive="router-link-active" ><i class="fa fa-users"></i></a></li>
-        <li role="presentation" class="active lHeight"><a [routerLink]="['./news']" routerLinkActive="router-link-active" ><i class="fa fa-newspaper-o"></i></a></li>
+
+        <!-- routerLink传递参数有两种方式，
+            /message/selectedFriend：[routerLink]="['./message',selectedFriend]"，获取时使用params获取
+            /message?id=2：[routerLink]="['./message'] [queryParams]="{id:2}"，获取时使用 queryParams
+        -->
+        <li role="presentation" class="active lHeight"><a [routerLink]="['./message',selectedFriend]"><i class="fa fa-comments-o"></i></a></li>
+        <li role="presentation" class="active lHeight"><a [routerLink]="['./friends']" ><i class="fa fa-users"></i></a></li>
+        <li role="presentation" class="active lHeight"><a [routerLink]="['./news']" ><i class="fa fa-newspaper-o"></i></a></li>
         <li role="presentation" class="active lHeight"><a (click)="showAddDialog()"><i class="fa fa-user-plus"></i></a></li>
       </ul>
     <div class="contentContainer">
-          <p-listbox class="ui-g-4" [options]="friendList" [(ngModel)]="selectedFriend"></p-listbox>
+          <p-listbox class="ui-g-4" [routerLink]="['./message',selectedFriend]" [options]="friendList" [(ngModel)]="selectedFriend" (click)="changeChatPage()"></p-listbox>
           <div class="content">
               <router-outlet></router-outlet>
           </div>

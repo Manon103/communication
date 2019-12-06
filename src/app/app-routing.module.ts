@@ -17,7 +17,7 @@ const routes: Routes = [
     path: 'communication',
     component: CommunicationComponent,
     children: [
-      { path: 'message', component: MessageComponent },
+      { path: 'message/:selectedFriend', component: MessageComponent },
       { path: 'friends', component: FriendsComponent },
       { path: 'news', component: NewsComponent },
     ]
