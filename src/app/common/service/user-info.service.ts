@@ -52,6 +52,13 @@ export class UserInfoService {
     });
   }
 
+  getFriendList(userInfo) {
+    return this.http.get<any>(`http://localhost:3000/immediate-communication/getFriendList?userName=${userInfo.userName}`, {
+      headers: this.httpOptions.headers,
+      observe: 'body',
+    });
+  }
+
   validateSearchInfo(searchInfo) {
     return this.http.get<any>(`http://localhost:3000/immediate-communication/validateSearchInfo?searchInfo=${searchInfo}`, {
       headers: this.httpOptions.headers,

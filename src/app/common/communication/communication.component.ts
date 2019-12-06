@@ -10,7 +10,7 @@ import { MessageService } from 'primeng/api';
 })
 export class CommunicationComponent implements OnInit {
 
-  cities1: SelectItem[];
+  friendList: SelectItem[];
   selectedCity1: '';
   displayAddFriendDialog = false;
   searchInfo = '';
@@ -19,17 +19,17 @@ export class CommunicationComponent implements OnInit {
     private userInfoService: UserInfoService,
     private messageService: MessageService,
   ) {
-    this.cities1 = [
-      { label: 'Select City', value: null },
-      { label: 'New York', value: { id: 1, name: 'New York', code: 'NY' } },
-      { label: 'Rome', value: { id: 2, name: 'Rome', code: 'RM' } },
-      { label: 'London', value: { id: 3, name: 'London', code: 'LDN' } },
-      { label: 'Istanbul', value: { id: 4, name: 'Istanbul', code: 'IST' } },
-      { label: 'Paris', value: { id: 5, name: 'Paris', code: 'PRS' } }
-    ];
   }
 
   ngOnInit(): void {
+    // 初始化病人好友列表
+    this.userInfoService.getFriendList({ userName: sessionStorage.getItem('userName') }).subscribe(data => {
+      this.friendList = data.map(item => {
+        return {
+          label: item, value: item,
+        };
+      });
+    });
   }
 
   showAddDialog() {

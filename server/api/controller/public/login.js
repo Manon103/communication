@@ -34,3 +34,15 @@ module.exports.login = function (req, res) {
     }
   });
 }
+
+module.exports.getFriendList = (req, res) => {
+  var userName = req.query.userName;
+  UserInfo.find({ userName: userName }, (err, data) => {
+    if (err) {
+      common.sendResponse(res, 500, '服务器错误');
+    } else {
+      var friendList = data[0]['friendList'];
+      common.sendJsonResponse(res, 200, friendList);
+    }
+  })
+}
