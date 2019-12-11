@@ -28,6 +28,7 @@
               "../communication/node_modules/primeng/resources/primeng.min.css",
               "../communication/node_modules/primeicons/primeicons.css",
               "../communication/node_modules/primeng/resources/themes/nova-light/theme.css",
+              "../communication/node_modules/ngx-odinvt-emoji-mart/picker.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -97,6 +98,7 @@
               "../communication/node_modules/primeng/resources/primeng.min.css",
               "../communication/node_modules/primeicons/primeicons.css",
               "../communication/node_modules/primeng/resources/themes/nova-light/theme.css",
+              "../communication/node_modules/ngx-odinvt-emoji-mart/picker.css",
               "src/styles.css"
             ],
             "scripts": []

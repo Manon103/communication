@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { DialogModule } from 'primeng/dialog';
@@ -12,6 +13,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ListboxModule } from 'primeng/listbox';
 import { ToastModule } from 'primeng/toast';
+import { PickerModule } from 'ngx-odinvt-emoji-mart';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,9 +22,9 @@ import { LoginComponent } from './common/login/login.component';
 import { IndexComponent } from './common/index/index.component';
 import { RegisterComponent } from './common/register/register.component';
 import { CommunicationComponent } from './common/communication/communication.component';
-import { MessageComponent } from './common/communication/message/message.component';
-import { FriendsComponent } from './common/communication/friends/friends.component';
 import { NewsComponent } from './common/communication/news/news.component';
+import { FriendsComponent } from './common/communication/friends/friends.component';
+import { MessageComponent } from './common/communication/message/message.component';
 import { UserInfoService } from './common/service/user-info.service';
 import { WebSocketService } from './common/service/websocket.service';
 import { MessageService } from 'primeng/api';
@@ -29,16 +32,17 @@ import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
+    CommunicationComponent,
     LoginComponent,
     IndexComponent,
     RegisterComponent,
-    CommunicationComponent,
+    NewsComponent,
     MessageComponent,
-    FriendsComponent,
-    NewsComponent
+    FriendsComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -52,7 +56,8 @@ import { MessageService } from 'primeng/api';
     InputTextModule,
     ListboxModule,
     InputTextareaModule,
-    ToastModule
+    ToastModule,
+    PickerModule
   ],
   providers: [UserInfoService, HttpClient, WebSocketService, MessageService],
   bootstrap: [AppComponent]

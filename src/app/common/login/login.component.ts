@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserInfoService } from '../service/user-info.service';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login-component',
@@ -14,10 +15,10 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private userInfoService: UserInfoService,
     private route: Router,
+    private messageService: MessageService,
   ) {
 
   }
-  // url = '/client/src/assets/imgs/header.jpg';
   loginForm: FormGroup;
 
   ngOnInit(): void {
@@ -26,7 +27,6 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', Validators.required),
       rememberOrNot: new FormControl(''),
     });
-    // this.el.nativeElement.querySelector('.container-fluid').style.height = document.documentElement.clientHeight + 'px';
   }
 
   login() {
@@ -35,12 +35,12 @@ export class LoginComponent implements OnInit {
     this.userInfoService.login(this.loginForm.value).subscribe(
       res => {
         sessionStorage.setItem('userName', this.loginForm.controls.userName.value);
+        this.messageService.add({ severity: 'success', summary: 'success', detail: '登录成功！' });
         this.route.navigate(['/communication']);
-        alert('登陆成功');
       },
       err => {
         if (err.status === 401) {
-          alert('密码错误！');
+          this.messageService.add({ severity: 'error', summary: 'error', detail: '密码错误' });
         }
         this.userInfoService.handleError(err);
       }

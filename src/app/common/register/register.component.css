@@ -1,20 +1,26 @@
-.topic .topicName{
-  font-size: 6rem;
-  margin-top: 2%;
-  color:#0884ff;
-  font-family: 'simsun';
-  font-weight: bold;
-}
-
-.topic .topicDetails{
-  font-family: 'simhei';
-}
-
 .container-fluid{
   height: 100%;
   font-size: 1.5rem;
   background:url('../../../assets/imgs/2.jpg');
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat
+}
+
+.container-fluid .topic{
+  padding-top: 3rem;
+}
+
+.container-fluid .topic .topicName{
+  font-size: 3rem;
+  margin-top: 0;
+  color:#0884ff;
+  font-family: 'simsun';
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.container-fluid .topic .topicDetails{
+  font-family: 'simhei';
 }
 
 .formContainer{
@@ -26,15 +32,15 @@
   height: 70px;
 }
 .formContainer label{
-  font-size: .9em;
+  font-size: .5em;
 }
 .username, .password{
   height:36px;
 }
 .submitBtn{
   margin-top: 5%;
-  margin-left: 8%;
-  width: 88%;
+  margin-left: 15%;
+  width: 70%;
   height: 32px;
-  font-size: .9em;
+  font-size: .6em;
 }

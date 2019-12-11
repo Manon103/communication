@@ -12,8 +12,8 @@
         <li role="presentation" class="active lHeight"><a (click)="showAddDialog()"><i class="fa fa-user-plus"></i></a></li>
       </ul>
     <div class="contentContainer">
-          <p-listbox class="ui-g-4" [routerLink]="['./message',selectedFriend]" [options]="friendList" [(ngModel)]="selectedFriend" (click)="changeChatPage()"></p-listbox>
-          <div class="content">
+          <p-listbox class="ui-g-3" [routerLink]="['./message',selectedFriend]" [options]="friendList" [(ngModel)]="selectedFriend" (click)="changeChatPage()"></p-listbox>
+          <div class="content ui-g-9">
               <router-outlet></router-outlet>
           </div>
     </div>

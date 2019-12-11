@@ -63,14 +63,6 @@ wsServer.on('connection', websocket => {
   });
 });
 
-/* // 连接成功
-wss.on('connection', websocket => {
-  websocket.on('message', (data) => {
-    console.log(JSON.parse(data));
-    websocket.send(data);
-  });
-}); */
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

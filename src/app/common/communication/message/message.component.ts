@@ -44,10 +44,28 @@ export class MessageComponent implements OnInit {
   messageList = [];
   msg = '';
   selectedFriend = '';
+  msgTable = this.el.nativeElement.querySelector('.msgTable');
+  showEmoji = false;
 
   ws: WebSocket;
   session = sessionStorage.getItem('userName');
   recieveMsg: RecieveMessage;
+  I18n = {
+    search: 'Search',
+    notfound: 'No Emoji Found',
+    categories: {
+      search: 'Search Results',
+      recent: 'Frequently Used',
+      people: 'Smileys & People',
+      nature: 'Animals & Nature',
+      foods: 'Food & Drink',
+      activity: 'Activity',
+      places: 'Travel & Places',
+      objects: 'Objects',
+      symbols: 'Symbols',
+      custom: 'Custom',
+    }
+  };
 
   searchParams = {
     userName: this.session,
@@ -59,6 +77,7 @@ export class MessageComponent implements OnInit {
     this.selectedFriend = this.route.snapshot.params.selectedFriend;
     this.searchParams.aimUser = this.selectedFriend;
     this.getMessageList(this.searchParams);
+    // 前端建立ws流
     this.webSocketService.createObservableWebSocket(`ws://localhost:8085?id=${this.session}`).subscribe(
       data => {
           this.recieveMsg = {
@@ -75,6 +94,7 @@ export class MessageComponent implements OnInit {
         console.log('流已结束');
       }
     );
+
   }
 
   getMessageList(searchParams) {
@@ -88,10 +108,12 @@ export class MessageComponent implements OnInit {
             styleClass: _userName === this.session ? 'fRight' : 'fLeft',
           };
         });
-        console.log(this.messageList);
       },
       err => {
         this.userInfoService.handleError(err);
+      },
+      () => {
+        this.el.nativeElement.querySelector('.msgTable').scrollTop = this.el.nativeElement.querySelector('.msgTable').scrollHeight;
       }
     );
   }
@@ -102,20 +124,30 @@ export class MessageComponent implements OnInit {
       session: this.session,
       aimUser: this.selectedFriend,
     };
+    // 发送消息
     this.webSocketService.sendMessage(message);
     this.userInfoService.sendMessage(message).subscribe(
       data => { },
       err => {
         this.userInfoService.handleError(err);
+      },
+      () => {
+        this.msgTable.scrollTop = this.msgTable.scrollHeight;
       }
     );
 
     this.getMessageList(this.searchParams);
-    const msgTable = this.el.nativeElement.querySelector('.msgTable');
-    setTimeout(() => {
-      msgTable.scrollTop = msgTable.scrollHeight;
-    }, 300);
     this.msg = '';
   }
 
+  addEmoji(e) {
+
+    // e.emoji.native当前选中的表情
+    this.msg += e.emoji.native;
+    this.showEmoji = false;
+  }
+
+  showEmojiBar() {
+    this.showEmoji = !this.showEmoji;
+  }
 }
