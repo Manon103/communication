@@ -16,10 +16,15 @@
   </div>
   <div class="sendMsg">
       <p style="margin: 8px 0 6px 14px">
-        <a style="margin-right: 20px; color: #333"><i class="fa fa-smile-o"></i></a>
+        <a style="margin-right: 20px; color: #333" (click)="showEmojiBar()"><i class="fa fa-smile-o"></i></a>
         <a style="color:#333"><i class="fa fa-picture-o"></i></a>
       </p>
-      <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize" [(ngModel)]="msg"></textarea>
+
+      <div *ngIf="showEmoji" style="position: absolute; bottom: 189px; right: 711px">
+        <emoji-mart exclude="[flags]" set="apple" (emojiClick)="addEmoji($event)" [showPreview]="false" [i18n]="I18n"></emoji-mart>
+      </div>
+
+      <textarea contentEditable='true' [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize" [(ngModel)]="msg"></textarea>
       <button *ngIf="msg" pButton type="button" label="发送" class="ui-button-primary sendBtn" (click)="sendMsg()"></button>
       <button  *ngIf="!msg" pButton disabled="disabled" label="发送" type="button" class="ui-button-primary sendBtn" (click)="sendMsg()"></button>
   </div>

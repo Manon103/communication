@@ -17,7 +17,7 @@
   border-top: 1px solid #eee;
 }
 .content .msgTable{
-  height: 286px;
+  height: 350px;
   overflow: scroll;
   margin-bottom: 0;
 }
@@ -74,6 +74,5 @@
   margin-right: 10px;
   float: right;
 }
-
 
 

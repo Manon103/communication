@@ -60,7 +60,7 @@
   border: 1px solid #d1cdcd;
 }
 
-:host ::ng-deep .ui-g-4{
+:host ::ng-deep .ui-g-3,.ui-g-9{
   padding: 0;
 }
 
@@ -73,5 +73,10 @@
   text-align: center;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+}
+
+:host ::ng-deep .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight{
+  background-color: #428bca;
+  outline: none !important;
 }
 

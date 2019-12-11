@@ -4,6 +4,7 @@
 @import '../node_modules/primeng/resources/themes/nova-light/theme.css';
 @import '../node_modules/primeicons/primeicons.css';
 @import'~font-awesome/css/font-awesome.css';
+@import "~ngx-odinvt-emoji-mart/picker.css";
 
 html{
   height: 100%;
