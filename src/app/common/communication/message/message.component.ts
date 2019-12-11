@@ -113,7 +113,7 @@ export class MessageComponent implements OnInit {
         this.userInfoService.handleError(err);
       },
       () => {
-        this.el.nativeElement.querySelector('.msgTable').scrollTop = this.el.nativeElement.querySelector('.msgTable').scrollHeight;
+        this.el.nativeElement.querySelector('.msgTable').scrollTop = 350;
       }
     );
   }
@@ -132,7 +132,7 @@ export class MessageComponent implements OnInit {
         this.userInfoService.handleError(err);
       },
       () => {
-        this.msgTable.scrollTop = this.msgTable.scrollHeight;
+        this.el.nativeElement.querySelector('.msgTable').scrollTop = 350;
       }
     );
 

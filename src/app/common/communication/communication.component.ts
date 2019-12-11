@@ -81,8 +81,4 @@ export class CommunicationComponent implements OnInit {
       });
     }
   }
-
-  changeChatPage() {
-
-  }
 }
