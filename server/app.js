@@ -43,14 +43,16 @@ app.use(function (req, res, next) {
 });
 
 // 设置服务器端口
-var wsServer = new Server({ port: 8085 });
+const wsServer = new Server({ port: 8085 });
 let socketSet = new Set();  // webSocket的连接是以set结构，而非数组
 
-wsServer.on('connection', websocket => {
+wsServer.on('connection', (websocket, req) => {
 
+  // 获取url中传来的参数作为用户唯一标识
+  const id = req.url.split('=')[1];
+  websocket.id = id;
+  socketSet.add(websocket);
   websocket.on('message', data => {
-    websocket.id = JSON.parse(data).session;
-    socketSet.add(websocket);
     socketSet.forEach(ws => {
       if (JSON.parse(data).aimUser === ws.id) {
         if (ws.readyState == 1) {
