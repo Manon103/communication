@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
+var pathname = __dirname;
 
 // 引入模块
 var Server = require('ws').Server;
@@ -13,6 +14,7 @@ var loginRouter = require('./api/routes/public/login');
 var registerRouter = require('./api/routes/public/register');
 var sendMessageRouter = require('./api/routes/public/message');
 var addFriendRouter = require('./api/routes/public/addFriend');
+var uploadFilesRouter = require('./api/controller/public/uploadFile');
 
 var app = express();
 app.use(session({
@@ -25,17 +27,16 @@ app.use(session({
 // 允许跨域
 app.use(function (req, res, next) {
 
-  // Website you wish to allow to connect
+  // angular项目启动端口是4200，设置该网址可以对服务器进行访问
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  // Request methods you wish to allow
+  // 设置允许进行的跨域方法
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
   // Request headers you wish to allow
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
 
-  // Set to true if you need the website to include cookies in the requests sent
-  // to the API (e.g. in case you use sessions)
+  // 设置未true时，在发送请求时，带上cookie信息
   res.setHeader('Access-Control-Allow-Credentials', true);
 
   // Pass to next layer of middleware
@@ -64,7 +65,8 @@ wsServer.on('connection', (websocket, req) => {
     });
   });
 });
-
+//静态文件访问
+app.use(express.static(pathname));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -76,6 +78,6 @@ app.use('/immediate-communication', loginRouter);
 app.use('/immediate-communication', registerRouter);
 app.use('/immediate-communication', sendMessageRouter);
 app.use('/immediate-communication', addFriendRouter);
-
+app.use('/immediate-communication', uploadFilesRouter);
 
 module.exports = app;
