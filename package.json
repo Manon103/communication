@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"ng serve --proxy-config proxy.config.json\"  \"nodemon ./server/bin/www\"",
+    "start": "concurrently \"ng serve --open\"  \"nodemon ./server/bin/www\"",
     "build": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",

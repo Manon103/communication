@@ -14,6 +14,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ListboxModule } from 'primeng/listbox';
 import { ToastModule } from 'primeng/toast';
 import { PickerModule } from 'ngx-odinvt-emoji-mart';
+import { FileUploadModule } from 'primeng/fileupload';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +24,7 @@ import { IndexComponent } from './common/index/index.component';
 import { RegisterComponent } from './common/register/register.component';
 import { CommunicationComponent } from './common/communication/communication.component';
 import { NewsComponent } from './common/communication/news/news.component';
-import { FriendsComponent } from './common/communication/friends/friends.component';
+import { FolderComponent } from './common/communication/friends/folder.component';
 import { MessageComponent } from './common/communication/message/message.component';
 import { UserInfoService } from './common/service/user-info.service';
 import { WebSocketService } from './common/service/websocket.service';
@@ -38,7 +39,7 @@ import { MessageService } from 'primeng/api';
     RegisterComponent,
     NewsComponent,
     MessageComponent,
-    FriendsComponent
+    FolderComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,8 @@ import { MessageService } from 'primeng/api';
     ListboxModule,
     InputTextareaModule,
     ToastModule,
-    PickerModule
+    PickerModule,
+    FileUploadModule
   ],
   providers: [UserInfoService, HttpClient, WebSocketService, MessageService],
   bootstrap: [AppComponent]
