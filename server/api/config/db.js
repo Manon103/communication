@@ -14,3 +14,4 @@ mongoose.connection.on('disconnected', () =>  {
 
 require('../model/userInfo');
 require('../model/message');
+require('../model/images');

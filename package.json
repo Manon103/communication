@@ -22,6 +22,7 @@
     "concurrently": "^5.0.0",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^5.2.0",
+    "ngx-odinvt-emoji-mart": "^0.0.5",
     "primeicons": "^2.0.0",
     "primeng": "^8.1.1",
     "rxjs": "~6.4.0",
