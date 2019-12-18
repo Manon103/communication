@@ -24,8 +24,8 @@
     <input type="text" placeholder="好友昵称/邮箱" style="width: 100%;" pInputText [(ngModel)]="searchInfo"/>
   </div>
   <p-footer>
-    <button *ngIf="searchInfo" pButton type="button" label="添加" class="ui-button-info"  (click)="validateSearchInfo()"></button>
-    <button *ngIf="!searchInfo" disabled pButton type="button" label="添加" class="ui-button-info"></button>
+    <button *ngIf="searchInfo" pButton type="button" class="ui-button-info"  (click)="validateSearchInfo()">添加</button>
+    <button *ngIf="!searchInfo" disabled pButton type="button" class="ui-button-info">添加</button>
     <button pButton type="button" label="取消" class="ui-button-secondary" (click)="hideAddDialog()"></button>
   </p-footer>
 </p-dialog>

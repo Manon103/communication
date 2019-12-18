@@ -4,7 +4,7 @@ import { LoginComponent } from './common/login/login.component';
 import { IndexComponent } from './common/index/index.component';
 import { RegisterComponent } from './common/register/register.component';
 import { CommunicationComponent } from './common/communication/communication.component';
-import { FolderComponent } from './common/communication/friends/folder.component';
+import { FolderComponent } from './common/communication/folder/folder.component';
 import { MessageComponent } from './common/communication/message/message.component';
 import { NewsComponent } from './common/communication/news/news.component';
 

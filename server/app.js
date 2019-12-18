@@ -14,7 +14,7 @@ var loginRouter = require('./api/routes/public/login');
 var registerRouter = require('./api/routes/public/register');
 var sendMessageRouter = require('./api/routes/public/message');
 var addFriendRouter = require('./api/routes/public/addFriend');
-var uploadFilesRouter = require('./api/controller/public/uploadFile');
+var uploadFilesRouter = require('./api/routes/public/uploadFiles');
 
 var app = express();
 app.use(session({
